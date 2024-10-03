@@ -8,6 +8,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Esta clase se va a encargar de mediante el metodo de leer peliculas desde el csv
+ * rellenará la lista de peliculas para poder filtrarla por el año mas tarde.
+ * @author Alberto Guzman
+ */
 public class MovieFilter {
     private final ArrayList<Movie> movies;
 
@@ -15,6 +20,11 @@ public class MovieFilter {
         this.movies = movies;
     }
 
+    /**
+     * Crea un archivo csv con el parametro pasado por argumento y dentro del csv
+     * solo estarán las películas posteriores a dicho año.
+     * @param year Parámetro para filtrar las peliculas
+     */
     public void filterMoviesByYear(Integer year) {
         File dir = new File("salida");
         checkIfDirExists(dir);
@@ -39,6 +49,11 @@ public class MovieFilter {
 
     }
 
+    /**
+     * Método para leer películas y almacenarlas en la lista
+     * @param csv archivo a leer
+     * @param movies lista a rellenar con películas
+     */
     public void readMoviesFromCSV(File csv, ArrayList<Movie> movies) {
         try(BufferedReader bfr = new BufferedReader(new FileReader(csv))) {
             String line;
@@ -57,6 +72,11 @@ public class MovieFilter {
         }
     }
 
+    /**
+     * Este método comprueba si hay un directorio existente si lo hay lo vacia lo borra
+     * y crea otro sino lo crea directamente.
+     * @param dir directorio a comprobar si existe o no para crearlo.
+     */
     private static void checkIfDirExists(File dir) {
         if(dir.exists() && dir.isDirectory()) {
             for(File file : Objects.requireNonNull(dir.listFiles())) {
