@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entidad que representan las películas con las que vamos a operar
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
